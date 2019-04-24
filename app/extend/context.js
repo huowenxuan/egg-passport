@@ -2,7 +2,13 @@
 
 module.exports = {
   get user() {
-    return this.req[this.app.passport._userProperty];
+    let property = this.app.passport._userProperty
+    return this.req[property].user;
+  },
+
+  get admin() {
+    let property = this.app.passport._userProperty
+    return this.req[property].admin;
   },
 
   // https://github.com/jaredhanson/passport/blob/master/lib/http/request.js
